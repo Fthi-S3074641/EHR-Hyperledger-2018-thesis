@@ -1,0 +1,56 @@
+namespace org.acme.storage
+
+
+abstract participant Person identified by personId {
+  o String personId
+  o String name
+}
+
+participant Doctor extends Person {
+}
+
+participant Nurse extends Person {
+}
+
+participant Patient extends Person {
+  o String[] mySymptoms optional
+  o Medication[] myMedications optional
+}
+
+asset Medication identified by medicineId {
+  o String medicineId
+  o String description
+}
+
+abstract transaction PatientTransaction {
+  --> Patient mypatient
+  o DateTime when
+}
+
+transaction addSymptoms extends PatientTransaction {
+  --> Nurse mynurse
+  o String mysymptom
+}
+
+transaction giveMedication extends PatientTransaction {
+  --> Doctor mydoctor
+  --> Medication mymedication
+}
+
+event MedicationEvent {
+  --> Medication yourmedication
+  --> Doctor fromdoctor
+  --> Patient topatient
+}
+
+// transaction addDoctors {
+// }
+
+// transaction addPatients {
+// }
+
+// transaction addMedications {
+// }
+
+// transaction addNurses {
+// }

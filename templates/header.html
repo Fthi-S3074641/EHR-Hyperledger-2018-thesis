@@ -1,0 +1,39 @@
+<head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/js/materialize.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.2/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <title>{{ title }}  Hyperledger EHR System</title>
+        <script type="text/javascript">
+          // For the DatePicker utility from MaterializeCSS :)
+            $(document).ready(function(){
+              $('.datepicker').datepicker({
+                container: 'body'
+              });
+            });
+            $(document).ready(function(){
+              $('select').select();
+            });
+            $(document).ready(function(){
+              $('.modal').modal();
+            });
+          </script>
+              
+      </head>
+
+  
+<div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper our-colour">
+          <a href="/index" class="brand-logo"><i class="material-icons md-48">&nbsp;</i> Hyperledger EHR System</a>
+          
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a href="/Patient">Patients</a></li>
+            <li><a href="/Doctor">Doctors</a></li>
+            <li><a href="/Nurse">Nurses</a></li>
+            <li><a href="/Medication">Medications</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
